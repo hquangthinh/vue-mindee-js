@@ -10,7 +10,7 @@ import {
   watch,
 } from "vue";
 import { v4 as uuidv4 } from "uuid";
-import { Key } from "ts-key-enum";
+//import { Key } from "ts-key-enum";
 
 import type {
   AnnotationData,
@@ -233,7 +233,7 @@ const onZoom = (event: KonvaEventObject<Konva.Stage>) => {
 const onKeyDownSelection = (event: KeyboardEvent) => {
   event.stopPropagation();
   switch (event.key) {
-    case Key.Control:
+    case 'Control':
       stageObject.value?.draggable(false);
       isSelectionActiveRef.value = true;
       break;
@@ -245,7 +245,7 @@ const onKeyDownSelection = (event: KeyboardEvent) => {
 const onKeyUpSelection = (event: KeyboardEvent) => {
   event.stopPropagation();
   switch (event.key) {
-    case Key.Control:
+    case 'Control':
       stageObject.value?.draggable(true);
       isSelectionActiveRef.value = false;
       break;

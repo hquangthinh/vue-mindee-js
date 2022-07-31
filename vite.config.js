@@ -25,12 +25,22 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "vue-mindee-js",
-      formats: ["es"],
-      fileName: () => "index.js",
+      //name: "vue-mindee-js",
+      name: "vuemindeejs",
+      formats: ["es", "iife", "umd"],
+      fileName: (format) => `vuemindeejs.${format}.js`,
     },
     rollupOptions: {
       external: getExternalDeps(),
+      // input: 'src/index.ts',
+      output: {
+        globals: {
+          vue: 'Vue',
+          konva: 'Konva',
+          uuid: 'uuid',
+          'ts-key-enum': 'Key'
+        }
+      }
     },
   },
 });
